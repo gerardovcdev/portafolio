@@ -5,14 +5,6 @@ import { ArrowDown, ArrowRight, Mail } from 'lucide-react'
 import Script from 'next/script'
 import { useLanguage } from '@/context/LanguageContext'
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'spline-viewer': any
-    }
-  }
-}
-
 const heroText = {
   en: {
     badge: 'Available for hire',
@@ -76,6 +68,7 @@ export default function Hero() {
       {/* 3D Spline Background */}
       <div className="absolute inset-0 z-0 opacity-100 mix-blend-normal pointer-events-none sm:pointer-events-auto">
         <Script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.86/build/spline-viewer.js" strategy="afterInteractive" />
+        {/* @ts-ignore */}
         <spline-viewer url="https://prod.spline.design/1vamBVInfnjsA-uk/scene.splinecode" style={{ width: '100%', height: '100%' }}></spline-viewer>
       </div>
 
